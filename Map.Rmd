@@ -1,0 +1,151 @@
+---
+title: ""
+author: ''
+date: ''
+output:
+  pdf_document: 
+    latex_engine: xelatex
+  toc: yes
+  toc_depth: 2
+classoption: a4paper
+# geometry: margin=1cm
+header-includes:
+  # - \usepackage{caption}
+  # - \usepackage{longtable}
+  # - \usepackage{float}
+  # - \usepackage{booktabs}
+  # - \usepackage{makecell}
+  # - \usepackage{setspace}
+  # - \pagenumbering{gobble}
+  - \usepackage{multicol}
+  - \usepackage{setspace}
+  - \usepackage{silence}
+  - \usepackage{fontspec}
+  - \usepackage{xunicode}
+  - \usepackage{polyglossia}
+  - \usepackage{hologo}
+  - \setmainlanguage{english}
+  - \setotherlanguages{hindi}
+  - \newfontfamily\devanagarifont[Script=Devanagari, Color=gray, Scale=MatchUppercase]{Noto Serif Devanagari}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width=50)
+options(digits = 3)
+
+if(!require(tidyverse)) install.packages("tidyverse",
+    repos = "http://cran.us.r-project.org")
+if(!require(kableExtra)) install.packages("kableExtra",
+    repos = "http://cran.us.r-project.org")
+if(!require(shiny)) install.packages("shiny",
+    repos = "http://cran.us.r-project.org")
+if(!require(sp)) install.packages("sp",
+    repos = "http://cran.us.r-project.org")
+if(!require(sf)) install.packages("sf",
+    repos = "http://cran.us.r-project.org")
+if(!require(gridExtra)) install.packages("gridExtra",
+    repos = "http://cran.us.r-project.org")
+if(!require(rgdal)) install.packages("rgdal",
+    repos = "http://cran.us.r-project.org")
+if(!require(rgeos)) install.packages("rgeos",
+    repos = "http://cran.us.r-project.org")
+# if(!require(devtools)) install.packages("devtools",
+#     repos = "http://cran.us.r-project.org")
+# if(!require(maptools)) install.packages("maptools",
+#     repos = "http://cran.us.r-project.org")
+#if(!require(gridExtra)) install.packages("tidykml",
+#    repos = "http://cran.us.r-project.org")
+# if(!require(UScensus2010)) install.packages("UScensus2010",
+#     repos = "http://cran.us.r-project.org")
+# if(!require(gridExtra)) install.packages("imager",
+#     repos = "http://cran.us.r-project.org")
+# if(!require(gridExtra)) install.packages("igraph",
+#     repos = "http://cran.us.r-project.org")
+# if(!require(jpeg)) install.packages("jpeg",
+#     repos = "http://cran.us.r-project.org")
+if(!require(here)) install.packages("here",
+    repos = "http://cran.us.r-project.org")
+
+library("tidyverse")
+library("kableExtra")
+library("gridExtra")
+library("shiny")
+library("sp")
+library("sf")
+library("rgdal")
+library("rgeos")
+# library("devtools")
+# library("maptools")
+#library("tidykml")
+# library("UScensus2010")
+# library("imager")
+# library("igraph")
+# library("jpeg")
+library("here")
+```
+
+
+
+```{=latex}
+\begin{center}
+\huge{FRA map}
+\huge{\texthindi{वन अधिकार अधिनियम के अंतर्गत नक्शा}}
+\end{center}
+\setlength{\columnsep}{40pt}
+```
+
+
+
+```{r include=FALSE}
+f <- st_read("kmlfile.kml")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+f %>% ggplot() + geom_sf(label_graticule = waiver()) + theme_bw()
+```
+
+
+
+<!-- Report generated on `r format(Sys.time(), '%c')` -->
+Report generated on `r format(Sys.time(), "%a %d %b %Y %X", tz="Asia/Kolkata")` IST  \texthindi{को प्रतिवेदन की उत्पत्ति हुई।}
+<!-- Report generated on `r lubridate::now(tzone = "Asia/Kolkata")` -->
+
+```{=latex}
+\vspace{0.5in}
+\begin{multicols}{2}
+\begin{doublespace}
+```
+Applicant's name:
+
+\underline{Data entered by \texthindi{जानकारी जिनके द्वारा भरी गई}:}
+
+Signature with date \texthindi{हस्ताक्षर एवं दिनांक}:
+
+Name \texthindi{नाम}:
+
+Designation \texthindi{पद}:
+
+Applicant's Samagra id:
+
+\underline{Report checked by \texthindi{प्रतिवेदन जिनके द्वारा जाँचा गया}:}
+
+Signature with date \texthindi{हस्ताक्षर एवं दिनांक}: 
+
+Name \texthindi{नाम}:
+
+Designation \texthindi{पद}:
+
+
+```{=latex}
+\end{doublespace}
+\end{multicols}
+\vspace{0.5in}
+\begin{tiny}
+```
+
+Legal notice: The application for generating this FRA document report https://0xfn3m-ankur-awadhiya.shinyapps.io/Timber_gradation has been released on 25 May 2023 by the creator Dr. Ankur Awadhiya, IFS on as-is basis in the form of an educational tool sans liabilities and warranties, and is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License. You are free to share, copy, redistribute in any medium or format, adapt, remix, transform, and build upon the material, even for commercial purposes, under the terms of appropriate attribution and sharealike licensing. Please see https://creativecommons.org/licenses/by-sa/4.0/legalcode for details. *Caveat emptor:* The output of the application is suggestive, and must be correlated with on-site attributes and peculiarities before usage.
+
+```{=latex}
+\end{tiny}
+```
