@@ -36,8 +36,8 @@ options(digits = 3)
 
 if(!require(tidyverse)) install.packages("tidyverse",
     repos = "http://cran.us.r-project.org")
-if(!require(kableExtra)) install.packages("kableExtra",
-    repos = "http://cran.us.r-project.org")
+#if(!require(kableExtra)) install.packages("kableExtra",
+#    repos = "http://cran.us.r-project.org")
 if(!require(shiny)) install.packages("shiny",
     repos = "http://cran.us.r-project.org")
 if(!require(sp)) install.packages("sp",
@@ -68,7 +68,7 @@ if(!require(here)) install.packages("here",
     repos = "http://cran.us.r-project.org")
 
 library("tidyverse")
-library("kableExtra")
+#library("kableExtra")
 library("gridExtra")
 library("shiny")
 library("sp")
