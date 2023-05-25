@@ -105,7 +105,7 @@ f <- st_read("kmlfile.kml")
 f %>% ggplot() + geom_sf(label_graticule = waiver()) + theme_bw()
 ```
 
-
+Area of polygon: `r st_area(f) %>% round(3)` square metre(s)
 
 <!-- Report generated on `r format(Sys.time(), '%c')` -->
 Report generated on `r format(Sys.time(), "%a %d %b %Y %X", tz="Asia/Kolkata")` IST  \texthindi{को प्रतिवेदन की उत्पत्ति हुई।}
